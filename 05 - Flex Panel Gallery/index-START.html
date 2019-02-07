@@ -139,9 +139,7 @@
 
     <script>
       // run through the buttons
-      const sections = document.getElementsByClassName("panel");
-      for (let a = 0; a < sections.length; a++) {
-        let elem = sections[a];
+      const clickEvent = elem => {
         elem.onclick = () => {
           if (elem.classList.contains("open")) {
             elem.classList.remove("open");
@@ -150,7 +148,14 @@
             elem.classList.add("open");
             elem.classList.add("open-active");
           }
+          // it looks like wesbos is separating out these two things into separate functions I would impagine that would be a better practicd
         };
+      };
+      const sections = document.getElementsByClassName("panel");
+      //could have also used document.getQuerySelector("panel");
+      for (let a = 0; a < sections.length; a++) {
+        let elem = sections[a];
+        clickEvent(elem);
       }
     </script>
   </body>
