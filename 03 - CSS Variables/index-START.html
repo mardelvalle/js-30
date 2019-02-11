@@ -13,9 +13,9 @@
         id="spacing"
         type="range"
         name="spacing"
-        min="10"
+        min="0"
         max="200"
-        value="10"
+        value="0"
         data-sizing="px"
       />
 
@@ -42,13 +42,13 @@
     */
       :root {
         --base: #ffc600;
-        --blur: 0px;
+        --blur: 10px;
         --spacing: 0px;
       }
 
       img {
         background: var(--base);
-        filter: var(--blur);
+        filter: blur(var(--blur));
         padding: var(--spacing);
       }
 
@@ -79,6 +79,9 @@
           `--${this.name}`,
           this.value + suffix
         );
+        console.log(suffix);
+        console.log(this.value);
+        console.log(this.name);
       }
 
       inputs.forEach(input => input.addEventListener("change", handleUpdate));
